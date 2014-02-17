@@ -44,3 +44,26 @@ timediff <- function(x) {
 	totalset <- list(train,  test)
 	return(totalset)
 } 
+
+
+# compute the cosine similarity: A.B/|A|*|B|
+cosineSimilarity <- function(vecA, vecB) {
+	if (length(vecA) != length(vecB)){
+		return(0)
+	}
+	sim <- ( vecA %*% vecB)/(sqrt(vecA %*%vecA) * sqrt(vecB %*% vecB))
+	return(sim)
+}
+
+
+# compute the jaccard similarity: intersect(A,B)/union(A,B)
+
+jaccardSimilarity <- function(vecA, vecB) {
+	if (length(vecA) != length(vecB)){
+		return(0)
+	}
+	intersect <- vecA %*% vecB
+	union = length(vecA)
+	sim <- intersect/union
+	return(sim)
+}
