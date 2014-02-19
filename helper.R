@@ -67,3 +67,16 @@ jaccardSimilarity <- function(vecA, vecB) {
 	sim <- intersect/union
 	return(sim)
 }
+
+
+rmse <- function(y, x) {
+	if (length(y) != length(x)) {
+		stop('Output and input are not of the same length')
+	}
+
+	err = 0
+	for (i in 1:length(y)) {
+		err = err + (y[i] - x[i]) * (y[i] - x[i])
+	}
+	return (sqrt(err))
+}
