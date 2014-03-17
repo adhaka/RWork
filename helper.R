@@ -80,3 +80,17 @@ rmse <- function(y, x) {
 	}
 	return (sqrt(err))
 }
+
+equal.length <- function(...){
+	vec.list <- list(...)
+	if(length(vec.list) < 1) {
+		stop("No vectors provided.")
+	}
+
+	if(!all(sapply(vec.list, length)) == length(vec.list[[1]])) {
+		stop("The vectors given are not of equal length.")
+	}
+
+}
+
+similarityP1 <- function()
